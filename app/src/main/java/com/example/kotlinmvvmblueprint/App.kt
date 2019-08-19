@@ -12,12 +12,9 @@ open class App : DaggerApplication() {
 
     override fun applicationInjector(): AndroidInjector<out DaggerApplication> = androidInjector
 
-
     override fun onCreate() {
         super.onCreate()
         initTimber()
-
-
     }
 
     override fun attachBaseContext(base: Context?) {
@@ -27,6 +24,10 @@ open class App : DaggerApplication() {
             .build()
     }
 
-    protected open fun initTimber() = Timber.plant()
+    protected open fun initTimber() {
+        if (BuildConfig.DEBUG) {
+            Timber.plant(Timber.DebugTree())
+        }
+    }
 
 }

@@ -12,7 +12,7 @@ class HomeScreeModule {
     fun providesHomeScreenViewModel(dataRepository: DataRepository): HomeViewModel = HomeViewModel(dataRepository)
 
     @Provides
-    fun providesViewModelProviderFactory(homeViewModel: HomeViewModel) =
-        ViewModelProviderFactory<HomeViewModel>(homeViewModel)
+    fun providesViewModelProviderFactory(homeViewModel: HomeViewModel): ViewModelProviderFactory<HomeViewModel> =
+        ViewModelProviderFactory(homeViewModel)
 
 }

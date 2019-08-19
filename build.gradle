@@ -5,7 +5,7 @@ buildscript {
     repositories {
         google()
         jcenter()
-        
+
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.4.2'
@@ -20,7 +20,7 @@ allprojects {
         google()
         jcenter()
         maven { url 'http://dl.bintray.com/kotlin/kotlin-eap-1.2' }
-        
+
     }
 }
 
@@ -47,6 +47,7 @@ ext {
     gson = '2.8.5'
     butterknife = '8.8.1'
     timber = '4.7.1'
+    anko_version = '0.10.8'
     dexter = '5.0.0'
     firebaseCore = '16.0.8'
     firebaseMessaging = '17.5.0'

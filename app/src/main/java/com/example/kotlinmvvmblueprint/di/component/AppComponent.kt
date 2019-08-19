@@ -21,6 +21,7 @@ interface AppComponent : AndroidInjector<App> {
 
     @Component.Builder
     interface Builder {
+
         @BindsInstance
         fun application(application: Application): Builder
 
@@ -28,4 +29,5 @@ interface AppComponent : AndroidInjector<App> {
     }
 
     override fun inject(instance: App)
+
 }

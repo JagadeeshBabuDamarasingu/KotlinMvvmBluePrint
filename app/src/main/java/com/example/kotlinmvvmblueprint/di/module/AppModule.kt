@@ -33,15 +33,20 @@ class AppModule {
 
     @Provides
     @Singleton
-    fun providesDataRepository(repository: DataRepositoryImpl): DataRepository = repository
+    fun providesDataRepository(
+        context: Context,
+        prefManager: PrefManager,
+        databaseManager: DatabaseManager,
+        apiService: ApiService
+    ): DataRepository = DataRepositoryImpl(context, prefManager, databaseManager, apiService)
 
     @Provides
     @Singleton
-    fun providesDatabaseManager(databaseManager: DatabaseManagerImpl): DatabaseManager = databaseManager
+    fun providesDatabaseManager(): DatabaseManager = DatabaseManagerImpl()
 
     @Provides
     @Singleton
-    fun providesPrefManager(prefManager: PrefManagerImpl): PrefManager = prefManager
+    fun providesPrefManager(sharedPreferences: SharedPreferences): PrefManager = PrefManagerImpl(sharedPreferences)
 
     @Provides
     @Singleton

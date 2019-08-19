@@ -52,6 +52,9 @@ dependencies {
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
+    //Anko
+    implementation "org.jetbrains.anko:anko:$rootProject.anko_version"
+
 
     // view model
     implementation "android.arch.lifecycle:extensions:$rootProject.lifecycle"
