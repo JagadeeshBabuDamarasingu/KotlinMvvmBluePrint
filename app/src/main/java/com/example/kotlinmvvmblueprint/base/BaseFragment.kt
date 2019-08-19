@@ -45,6 +45,13 @@ abstract class BaseFragment<out VB : ViewDataBinding,
         return mViewDataBinding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        mViewDataBinding.setVariable(getBindingVariable(),mAndroidViewModel)
+        mViewDataBinding.lifecycleOwner = this
+        mViewDataBinding.executePendingBindings()
+    }
+
     private fun performDependencyInjection() {
         AndroidSupportInjection.inject(this)
     }
@@ -58,9 +65,7 @@ abstract class BaseFragment<out VB : ViewDataBinding,
 
 
     interface Callback {
-
         fun onFragmentAttached()
-
         fun onFragmentDetached(tag: String)
     }
 

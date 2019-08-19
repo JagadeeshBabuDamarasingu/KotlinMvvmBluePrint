@@ -2,20 +2,19 @@ package com.example.kotlinmvvmblueprint.base
 
 import android.os.Bundle
 import android.os.PersistableBundle
-import android.view.MenuItem
 import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
-import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.ViewModel
 import dagger.android.AndroidInjection
-import dagger.android.support.AndroidSupportInjection
 import dagger.android.support.DaggerAppCompatActivity
 
-abstract class BaseActivity<out VB : ViewDataBinding, out VM : AndroidViewModel> : DaggerAppCompatActivity(),
+abstract class BaseActivity<out VB : ViewDataBinding, out VM : ViewModel> : DaggerAppCompatActivity(),
     BaseFragment.Callback {
 
-    private lateinit var mViewDataBinding: VB
-    private lateinit var mAndroidViewModel: VM
+
+    private var mViewDataBinding: VB? = null
+    private var mAndroidViewModel: VM? = null
 
     @LayoutRes
     abstract fun getLayoutRes(): Int
@@ -23,6 +22,8 @@ abstract class BaseActivity<out VB : ViewDataBinding, out VM : AndroidViewModel>
     abstract fun getViewModel(): VM
 
     abstract fun getBindingVariable(): Int
+
+    fun getViewDataBinding(): VB? = mViewDataBinding
 
 //    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
 //        if (item?.itemId == android.R.id.home) finish()
@@ -33,13 +34,13 @@ abstract class BaseActivity<out VB : ViewDataBinding, out VM : AndroidViewModel>
         performDependencyInjection();
         super.onCreate(savedInstanceState, persistentState)
         performDataBinding()
-
     }
 
     private fun performDataBinding() {
         mViewDataBinding = DataBindingUtil.setContentView(this, getLayoutRes())
-        mViewDataBinding.setVariable(getBindingVariable(), mAndroidViewModel)
-        mViewDataBinding.executePendingBindings()
+        mAndroidViewModel = if (mAndroidViewModel == null) getViewModel() else mAndroidViewModel
+        mViewDataBinding?.setVariable(getBindingVariable(), mAndroidViewModel)
+        mViewDataBinding?.executePendingBindings()
     }
 
     private fun performDependencyInjection() {

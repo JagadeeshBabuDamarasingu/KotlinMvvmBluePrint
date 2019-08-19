@@ -24,6 +24,22 @@ android {
     dataBinding {
         enabled = true
     }
+
+    flavorDimensions "tier"
+    productFlavors {
+        dev {
+            buildConfigField "String", "BASE_ENDPOINT", "\"https://api.example.com/api/v1/\""
+        }
+
+        staging {
+            buildConfigField "String", "BASE_ENDPOINT", "\"https://api.example.com/api/v1/\""
+        }
+
+        prod {
+            buildConfigField "String", "BASE_ENDPOINT", "\"https://api.example.com/api/v1/\""
+        }
+    }
+
 }
 
 dependencies {
@@ -37,6 +53,11 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
 
+    // view model
+    implementation "android.arch.lifecycle:extensions:$rootProject.lifecycle"
+    annotationProcessor "android.arch.lifecycle:compiler:$rootProject.lifecycle"
+
+
     //dependency injection
     implementation "com.google.dagger:dagger:$rootProject.dagger2Version"
     implementation "com.google.dagger:dagger-android:$rootProject.dagger2AndroidSupport"
@@ -45,5 +66,13 @@ dependencies {
     kapt "com.google.dagger:dagger-android-processor:$rootProject.dagger2Version"
 
     // logger
-    implementation "com.jakewharton.timber:timber:$rootProject.timberVersion"
+    implementation "com.jakewharton.timber:timber:$rootProject.timber"
+
+    //Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$rootProject.retrofit"
+    implementation "com.squareup.retrofit2:converter-gson:$rootProject.retrofit"
+    implementation "io.realm:android-adapters:$rootProject.realmAdapter"
+    implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.okttpInterceptor"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$rootProject.rxjavaAdapter"
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
 }

@@ -5,4 +5,5 @@ object AppConstants {
     val DB_NAME = "app_db"
     val READ_TIMEOUT: Long = 10
     val WRITE_TIMEOUT: Long = 10
+    val CONNECT_TIMEOUT: Long = 10
 }
