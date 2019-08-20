@@ -4,6 +4,8 @@ import android.content.Context
 import com.example.kotlinmvvmblueprint.data.local.db.DatabaseManager
 import com.example.kotlinmvvmblueprint.data.local.prefs.PrefManager
 import com.example.kotlinmvvmblueprint.data.network.ApiService
+import io.reactivex.Single
+import retrofit2.Response
 import javax.inject.Inject
 
 class DataRepositoryImpl @Inject constructor(
@@ -12,9 +14,11 @@ class DataRepositoryImpl @Inject constructor(
     private val databaseManager: DatabaseManager,
     private val apiService: ApiService
 ) : DataRepository() {
+    override fun test(): Single<Response<Void>> {
+        return apiService.test()
+    }
 
     override fun getToken(): String? = prefManager.getToken()
 
     override fun saveToken(token: String) = prefManager.saveToken(token)
-
 }

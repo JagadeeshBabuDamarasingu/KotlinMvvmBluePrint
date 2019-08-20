@@ -28,7 +28,7 @@ android {
     flavorDimensions "tier"
     productFlavors {
         dev {
-            buildConfigField "String", "BASE_ENDPOINT", "\"https://api.example.com/api/v1/\""
+            buildConfigField "String", "BASE_ENDPOINT", "\"https://www.google.com/\""
         }
 
         staging {
@@ -55,6 +55,9 @@ dependencies {
     //Anko
     implementation "org.jetbrains.anko:anko:$rootProject.anko_version"
 
+    //RxJava and RxAndroid
+    implementation "io.reactivex.rxjava2:rxandroid:$rootProject.rxAndroidVersion"
+    implementation "io.reactivex.rxjava2:rxjava:$rootProject.rxAndroidVersion"
 
     // view model
     implementation "android.arch.lifecycle:extensions:$rootProject.lifecycle"
