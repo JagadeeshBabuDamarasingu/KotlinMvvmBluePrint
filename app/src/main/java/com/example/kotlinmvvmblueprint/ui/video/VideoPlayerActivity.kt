@@ -13,18 +13,26 @@ import com.example.kotlinmvvmblueprint.ViewModelProviderFactory
 import com.example.kotlinmvvmblueprint.ui.holders.VideoThumbHolder
 import com.example.kotlinmvvmblueprint.ui.home.VideoCarouselAdapter
 import com.google.android.exoplayer2.SimpleExoPlayer
+import com.google.android.exoplayer2.source.ExtractorMediaSource
 import com.google.android.exoplayer2.source.MediaSource
+import com.google.android.exoplayer2.source.ProgressiveMediaSource
 import com.google.android.exoplayer2.source.dash.DashMediaSource
 import com.google.android.exoplayer2.source.dash.DefaultDashChunkSource
+import com.google.android.exoplayer2.source.hls.HlsMediaSource
 import com.google.android.exoplayer2.upstream.DefaultBandwidthMeter
 import com.google.android.exoplayer2.upstream.DefaultHttpDataSourceFactory
+import dagger.android.AndroidInjection
 import kotlinx.android.synthetic.main.activity_video_player.*
+import javax.inject.Inject
 
 class VideoPlayerActivity : AppCompatActivity(),
     VideoThumbHolder.VideoHolderListener {
 
+    @Inject
+    lateinit var mFactory: ViewModelProviderFactory<VideoPlayerScreenViewModel>
 
-    val mAdapter = VideoCarouselAdapter(this)
+    @Inject
+    lateinit var mAdapter: VideoCarouselAdapter
 
     private lateinit var simpleExoplayer: SimpleExoPlayer
 
@@ -32,8 +40,7 @@ class VideoPlayerActivity : AppCompatActivity(),
 
     private val mViewModel: VideoPlayerScreenViewModel by lazy {
         ViewModelProviders.of(
-            this,
-            ViewModelProviderFactory<VideoPlayerScreenViewModel>(mViewModel)
+            this, mFactory
         ).get(VideoPlayerScreenViewModel::class.java)
     }
 
@@ -43,6 +50,7 @@ class VideoPlayerActivity : AppCompatActivity(),
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        AndroidInjection.inject(this)
         setContentView(R.layout.activity_video_player)
         setUp()
         initObservers()
@@ -99,8 +107,8 @@ class VideoPlayerActivity : AppCompatActivity(),
 
     private fun buildMediaSource(uri: Uri): MediaSource {
         val dataSourceFactory = DefaultHttpDataSourceFactory("ua", DefaultBandwidthMeter())
-        val dashChunkSourceFactory = DefaultDashChunkSource.Factory(dataSourceFactory)
-        return DashMediaSource(uri, dataSourceFactory, dashChunkSourceFactory, null, null)
+        return  ProgressiveMediaSource.Factory(dataSourceFactory)
+            .createMediaSource(uri)
     }
 
     private fun releaseExoplayer() {

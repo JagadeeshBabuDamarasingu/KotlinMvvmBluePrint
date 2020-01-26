@@ -9,6 +9,8 @@ import com.example.kotlinmvvmblueprint.ui.holders.CategoryHolder
 
 class CategoryAdapter(val listener: CategoryHolder.CategoryHolderListener) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+    val VIEW_TYPE_CATEGORY= 0;
+    val VIEW_TYPE_VIDEO = 1
 
     var categoryList = mutableListOf<Category>()
 
@@ -20,6 +22,7 @@ class CategoryAdapter(val listener: CategoryHolder.CategoryHolderListener) :
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return createCategoryHolder(parent)
     }
+
 
     private fun createCategoryHolder(parent: ViewGroup): RecyclerView.ViewHolder {
         return CategoryHolder(
