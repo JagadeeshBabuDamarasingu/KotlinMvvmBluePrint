@@ -4,10 +4,14 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.kotlinmvvmblueprint.data.DataRepository
+import com.example.kotlinmvvmblueprint.data.network.ApiService
 import io.reactivex.disposables.CompositeDisposable
 import java.lang.ref.WeakReference
 
-abstract class BaseViewModel<N>(private val dataRepository: DataRepository) : ViewModel() {
+abstract class BaseViewModel<N>(
+    private val dataRepository: DataRepository,
+    private val apiService: ApiService
+) : ViewModel() {
 
     private lateinit var mNavigator: WeakReference<N>
     private var mCompositeDisposable: CompositeDisposable = CompositeDisposable()
@@ -15,7 +19,9 @@ abstract class BaseViewModel<N>(private val dataRepository: DataRepository) : Vi
     private var error: MutableLiveData<Throwable> = MutableLiveData()
 
 
-    fun getDataRepository(): DataRepository = dataRepository
+    fun getDataRepository() = dataRepository
+
+    fun getApiService() = apiService
 
     fun getCompositeDisposable(): CompositeDisposable = mCompositeDisposable
 

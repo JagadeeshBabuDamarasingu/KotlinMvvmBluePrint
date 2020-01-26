@@ -1,9 +1,9 @@
 package com.example.kotlinmvvmblueprint
 
 object AppConstants {
-    val PREF_NAME = "app_pref"
-    val DB_NAME = "app_db"
-    val READ_TIMEOUT: Long = 10
-    val WRITE_TIMEOUT: Long = 10
-    val CONNECT_TIMEOUT: Long = 10
+    const val PREF_NAME = "kutuki_pref"
+    const val DB_NAME = "kutuki_db"
+    const val READ_TIMEOUT: Long = 60
+    const val WRITE_TIMEOUT: Long = 60
+    const val CONNECT_TIMEOUT: Long = 60
 }

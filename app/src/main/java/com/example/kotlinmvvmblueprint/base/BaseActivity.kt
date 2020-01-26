@@ -25,11 +25,6 @@ abstract class BaseActivity<out VB : ViewDataBinding, out VM : ViewModel> : Dagg
 
     fun getViewDataBinding(): VB? = mViewDataBinding
 
-//    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-//        if (item?.itemId == android.R.id.home) finish()
-//        return super.onOptionsItemSelected(item)
-//    }
-
     override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
         performDependencyInjection();
         super.onCreate(savedInstanceState, persistentState)
