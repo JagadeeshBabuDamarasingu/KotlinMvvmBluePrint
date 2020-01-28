@@ -3,5 +3,6 @@
     <domain-config cleartextTrafficPermitted="true">
         <domain includeSubdomains="true">clients3.google.com</domain>
         <domain includeSubdomains="true">mocky.io</domain>
+        <domain includeSubdomains="true">commondatastorage.googleapis.com</domain>
     </domain-config>
 </network-security-config>

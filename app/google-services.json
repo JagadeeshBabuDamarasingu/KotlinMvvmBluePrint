@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "894606206027",
+    "firebase_url": "https://kutuki-assessment.firebaseio.com",
+    "project_id": "kutuki-assessment",
+    "storage_bucket": "kutuki-assessment.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:894606206027:android:aa7f9741f847f79203d9ce",
+        "android_client_info": {
+          "package_name": "com.example.kotlinmvvmblueprint"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "894606206027-3jaqq222ncmu6m8mi4246d4q908r4h23.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.kotlinmvvmblueprint",
+            "certificate_hash": "fe50648716a7b0e147b35a9f593188d87099b677"
+          }
+        },
+        {
+          "client_id": "894606206027-s2pgons8g47tjtv7d1i286ea35f738er.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOepWkAay7_1PHIprJbnc5IOHD9wF0eqE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "894606206027-s2pgons8g47tjtv7d1i286ea35f738er.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

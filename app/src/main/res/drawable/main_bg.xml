@@ -7,8 +7,6 @@
             <gradient android:angle="45"
                 android:startColor="@color/category_bg_start"
                 android:endColor="@color/category_bg_end"/>
-
-            <corners android:radius="@dimen/dimen_hundred"/>
         </shape>
     </item>
 

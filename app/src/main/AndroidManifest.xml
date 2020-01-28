@@ -9,26 +9,44 @@
             android:allowBackup="true"
             android:icon="@mipmap/ic_launcher"
             android:label="@string/app_name"
+            android:networkSecurityConfig="@xml/network_config"
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
-            android:usesCleartextTraffic="true"
-            android:networkSecurityConfig="@xml/network_config"
-            android:theme="@style/AppTheme">
-        <activity android:name=".ui.video.VideoPlayerActivity"
-                android:screenOrientation="landscape"></activity>
+            android:theme="@style/AppTheme"
+            android:usesCleartextTraffic="true">
         <activity
-                android:name=".ui.home.HomeActivity"
-                android:screenOrientation="landscape" />
+                android:name=".ui.login.ValidateOtpActivity"
+                android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+                android:name=".ui.login.RequestOtpActivity"
+                android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+                android:name=".ui.splash.SplashActivity"
+                android:theme="@style/AppTheme.SplashTheme" />
 
         <activity-alias
                 android:name=".launcher"
-                android:targetActivity=".ui.home.HomeActivity">
+                android:targetActivity=".ui.splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity-alias>
+
+        <activity
+                android:theme="@style/AppTheme.NoActionBar"
+                android:name=".ui.video.VideoPlayerActivity"
+                android:configChanges="keyboardHidden|orientation|screenSize"
+                android:screenOrientation="landscape" />
+        <activity
+                android:theme="@style/AppTheme.NoActionBar"
+                android:name=".ui.home.HomeActivity"
+                android:screenOrientation="landscape" />
+
+        <meta-data
+                android:name="preloaded_fonts"
+                android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

@@ -12,8 +12,6 @@ import timber.log.Timber
 class HomeViewModel(dataRepository: DataRepository, apiService: ApiService) :
     BaseViewModel<HomeScreenNavigator>(dataRepository, apiService) {
     val categoriesLiveData: MutableLiveData<List<Category>> = MutableLiveData()
-        get
-
 
     init {
         getCompositeDisposable().add(

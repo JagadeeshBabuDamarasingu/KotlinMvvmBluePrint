@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+<!--    holds transition names-->
+    <string name="transition_title" translatable="false">title</string>
+</resources>

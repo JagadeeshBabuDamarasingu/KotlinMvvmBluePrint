@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">Kutuki</string>
+    <string name="phone_number_hint">Enter phone number here</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="send_otp">Send OTP</string>
+    <string name="india_phone_prefix" translatable="false">+91</string>
+    <string name="phone_number_empty">Please enter phone number</string>
+    <string name="validate">Validate</string>
+    <string name="resend">Resend</string>
+    <string name="otp_resend_enable_text">%1$ds</string>
+    <string name="enter_otp">Please enter OTP!</string>
+    <string name="phone_number_short">Phone number must 10 digits long</string>
+    <string name="back">Back</string>
+    <string name="unknown_error">Unknown error occurred</string>
 </resources>

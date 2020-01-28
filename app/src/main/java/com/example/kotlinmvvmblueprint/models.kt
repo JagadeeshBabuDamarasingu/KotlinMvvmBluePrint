@@ -19,7 +19,8 @@ data class Video(
     @SerializedName("videoURL")
     val videoUrl: String,
     @SerializedName("categories")
-    val categoryList: String
+    val categoryList: String,
+    var isSeen: Boolean = false
 )
 
 data class CategoriesResponse(

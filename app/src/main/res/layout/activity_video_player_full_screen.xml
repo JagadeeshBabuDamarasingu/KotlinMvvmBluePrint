@@ -3,23 +3,18 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
-        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:id="@+id/root_layout"
         android:layout_height="match_parent"
         android:background="@drawable/app_gradient_bg"
         tools:context=".ui.video.VideoPlayerActivity">
 
 
     <com.google.android.exoplayer2.ui.PlayerView
-            app:resize_mode="fill"
-            android:background="@android:color/transparent"
             android:id="@+id/player_view"
             android:layout_width="@dimen/dimen_zero"
             android:layout_height="@dimen/dimen_zero"
-            android:layout_marginStart="84dp"
-            android:layout_marginEnd="84dp"
-            app:layout_constraintHeight_percent=".7"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:resize_mode="fill"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -29,10 +24,9 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/dimen_zero"
             android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/player_view" />
+            app:layout_constraintTop_toBottomOf="parent" />
 
     <ProgressBar
             android:id="@+id/progress_circular"
@@ -47,14 +41,14 @@
 
     <com.google.android.material.button.MaterialButton
             android:id="@+id/back_btn"
+            android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dimen_sixteen"
             android:padding="@dimen/dimen_eight"
             android:text="@string/back"
             android:textColor="@android:color/white"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toLeftOf="@id/player_view"
+            app:layout_constraintRight_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

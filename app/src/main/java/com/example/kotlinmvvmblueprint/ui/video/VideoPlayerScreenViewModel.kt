@@ -1,5 +1,6 @@
 package com.example.kotlinmvvmblueprint.ui.video
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.kotlinmvvmblueprint.Video
 import com.example.kotlinmvvmblueprint.base.BaseViewModel
@@ -12,10 +13,9 @@ import timber.log.Timber
 class VideoPlayerScreenViewModel(dataRepository: DataRepository, apiService: ApiService) :
     BaseViewModel<VideoPlayerScreenNavigator>(dataRepository, apiService) {
 
-    val videosLiveData: MutableLiveData<List<Video>> = MutableLiveData()
+    private val videosLiveData: MutableLiveData<List<Video>> = MutableLiveData()
 
-    fun getVideosLiveDat() = videosLiveData
-
+    fun getVideosLiveData(): LiveData<List<Video>> = videosLiveData
 
     fun getVideos(category: String) {
         getCompositeDisposable().add(

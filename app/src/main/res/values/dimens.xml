@@ -4,4 +4,12 @@
     <dimen name="dimen_hundred">100dp</dimen>
     <dimen name="dimen_thirty_two">32dp</dimen>
     <dimen name="dimen_sixteen">16dp</dimen>
+    <dimen name="splash_title_text_size">89sp</dimen>
+    <dimen name="login_title_text_size">24sp</dimen>
+    <dimen name="btn_radius">4dp</dimen>
+    <dimen name="dimen_eight">8dp</dimen>
+    <dimen name="dimen_twelve">12dp</dimen>
+    <dimen name="dimen_four">4dp</dimen>
+    <dimen name="dimen_twenty_four">24dp</dimen>
+    <dimen name="dimen_sixty_four">64dp</dimen>
 </resources>

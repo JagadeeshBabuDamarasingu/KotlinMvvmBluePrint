@@ -6,17 +6,12 @@ import android.view.View
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.kotlinmvvmblueprint.BR
-import com.example.kotlinmvvmblueprint.Category
-import com.example.kotlinmvvmblueprint.R
-import com.example.kotlinmvvmblueprint.ViewModelProviderFactory
+import com.example.kotlinmvvmblueprint.*
 import com.example.kotlinmvvmblueprint.base.BaseActivity
 import com.example.kotlinmvvmblueprint.databinding.ActivityHomeBinding
 import com.example.kotlinmvvmblueprint.ui.holders.CategoryHolder
 import com.example.kotlinmvvmblueprint.ui.video.VideoPlayerActivity
 import kotlinx.android.synthetic.main.activity_home.*
-import kotlinx.android.synthetic.main.activity_home.progress_circular
-import kotlinx.android.synthetic.main.activity_video_player.*
 import timber.log.Timber
 import javax.inject.Inject
 
@@ -44,7 +39,9 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), HomeScr
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        hideStatusBar()
         setContentView(R.layout.activity_home)
+        hideNavigationBar()
         mViewModel.setNavigator(this)
         init()
         subscribeToLiveUpdates()

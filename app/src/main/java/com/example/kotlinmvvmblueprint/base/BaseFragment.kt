@@ -12,8 +12,8 @@ import androidx.lifecycle.AndroidViewModel
 import dagger.android.support.AndroidSupportInjection
 import dagger.android.support.DaggerFragment
 
-abstract class BaseFragment<out VB : ViewDataBinding,
-        out VM : AndroidViewModel> : DaggerFragment() {
+abstract class BaseFragment<out VB : ViewDataBinding, out VM : AndroidViewModel> :
+    DaggerFragment() {
 
 
     private lateinit var mViewDataBinding: VB
@@ -27,7 +27,7 @@ abstract class BaseFragment<out VB : ViewDataBinding,
 
     abstract fun getBindingVariable(): Int
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         super.onAttach(context)
         if (context is BaseActivity<*, *>) {
             mActivity = context
@@ -40,14 +40,18 @@ abstract class BaseFragment<out VB : ViewDataBinding,
         super.onCreate(savedInstanceState)
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         mViewDataBinding = DataBindingUtil.inflate(inflater, getLayoutRes(), container, false)
         return mViewDataBinding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        mViewDataBinding.setVariable(getBindingVariable(),mAndroidViewModel)
+        mViewDataBinding.setVariable(getBindingVariable(), mAndroidViewModel)
         mViewDataBinding.lifecycleOwner = this
         mViewDataBinding.executePendingBindings()
     }

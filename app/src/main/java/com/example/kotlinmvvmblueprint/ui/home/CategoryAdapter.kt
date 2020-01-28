@@ -7,10 +7,8 @@ import com.example.kotlinmvvmblueprint.Category
 import com.example.kotlinmvvmblueprint.databinding.ItemCategoryBinding
 import com.example.kotlinmvvmblueprint.ui.holders.CategoryHolder
 
-class CategoryAdapter(val listener: CategoryHolder.CategoryHolderListener) :
+class CategoryAdapter(private val listener: CategoryHolder.CategoryHolderListener) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-    val VIEW_TYPE_CATEGORY= 0;
-    val VIEW_TYPE_VIDEO = 1
 
     var categoryList = mutableListOf<Category>()
 

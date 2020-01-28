@@ -6,4 +6,10 @@
     <color name="category_bg_ripple">#F5BE1B</color>
     <color name="category_bg_start">#FF9800</color>
     <color name="category_bg_end">#FF5722</color>
+
+<!--    app background gradient colors-->
+    <color name="app_bg_grad_start">#25cbd7</color>
+    <color name="app_bg_grad_middle">#c471ed</color>
+    <color name="app_bg_grad_end">#ffff18</color>
+    <color name="check_green">#2CC532</color>
 </resources>

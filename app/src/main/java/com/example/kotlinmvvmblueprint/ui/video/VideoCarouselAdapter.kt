@@ -1,4 +1,4 @@
-package com.example.kotlinmvvmblueprint.ui.home
+package com.example.kotlinmvvmblueprint.ui.video
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -7,7 +7,7 @@ import com.example.kotlinmvvmblueprint.Video
 import com.example.kotlinmvvmblueprint.databinding.ItemVideoBinding
 import com.example.kotlinmvvmblueprint.ui.holders.VideoThumbHolder
 
-class VideoCarouselAdapter(val listener: VideoThumbHolder.VideoHolderListener) :
+class VideoCarouselAdapter(private val listener: VideoThumbHolder.VideoHolderListener) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     var categoryList = mutableListOf<Video>()
@@ -36,6 +36,5 @@ class VideoCarouselAdapter(val listener: VideoThumbHolder.VideoHolderListener) :
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         if (holder is VideoThumbHolder) holder.bindVideo(categoryList[holder.adapterPosition])
     }
-
 
 }
