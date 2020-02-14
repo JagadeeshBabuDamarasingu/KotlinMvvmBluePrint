@@ -10,6 +10,7 @@ import com.example.kotlinmvvmblueprint.*
 import com.example.kotlinmvvmblueprint.base.BaseActivity
 import com.example.kotlinmvvmblueprint.databinding.ActivityHomeBinding
 import com.example.kotlinmvvmblueprint.ui.holders.CategoryHolder
+import com.example.kotlinmvvmblueprint.ui.tracing.TracingActivity
 import com.example.kotlinmvvmblueprint.ui.video.VideoPlayerActivity
 import kotlinx.android.synthetic.main.activity_home.*
 import timber.log.Timber
@@ -59,6 +60,9 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), HomeScr
     private fun init() {
         categories_rv.layoutManager = mLayoutManager
         categories_rv.adapter = mAdapter
+        paint_btn.setOnClickListener {
+            startActivity(Intent(this@HomeActivity,TracingActivity::class.java))
+        }
     }
 
     override fun onCategoryClicked(category: Category) {

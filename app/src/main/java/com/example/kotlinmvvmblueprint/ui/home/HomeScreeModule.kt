@@ -25,6 +25,7 @@ class HomeScreeModule {
     fun providesCategoryAdapter(activity: HomeActivity) = CategoryAdapter(activity)
 
     @Provides
-    fun providesLayoutManager(activity: HomeActivity) = GridLayoutManager(activity, 4)
+    fun providesLayoutManager(activity: HomeActivity) = GridLayoutManager(activity, 2,
+        GridLayoutManager.HORIZONTAL,false)
 
 }

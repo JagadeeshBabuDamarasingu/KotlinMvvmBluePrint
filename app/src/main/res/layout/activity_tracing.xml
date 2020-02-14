@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/app_gradient_bg"
+        tools:context=".ui.tracing.TracingActivity">
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/left_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".2" />
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/bottom_guideLine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".8" />
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/top_margin"
+            app:layout_constraintGuide_begin="@dimen/dimen_twenty_four"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottie_view"
+            android:layout_width="@dimen/dimen_zero"
+            android:layout_height="@dimen/dimen_zero"
+            android:layout_margin="@dimen/dimen_sixteen"
+            app:layout_constraintDimensionRatio="h,1:1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/left_guideline"
+            app:layout_constraintTop_toBottomOf="@id/top_margin"
+            app:lottie_autoPlay="true"
+            app:lottie_fileName="A.json"
+            app:lottie_loop="true" />
+
+    <com.example.kotlinmvvmblueprint.ui.custom.DrawingView
+            android:layout_margin="@dimen/dimen_sixteen"
+            android:id="@+id/drawing_view"
+            android:layout_width="@dimen/dimen_zero"
+            android:layout_height="@dimen/dimen_zero"
+            app:layout_constraintBottom_toTopOf="@id/bottom_guideLine"
+            app:layout_constraintLeft_toRightOf="@id/left_guideline"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/top_margin" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

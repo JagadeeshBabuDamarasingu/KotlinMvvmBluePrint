@@ -16,16 +16,51 @@
             android:background="@drawable/app_gradient_bg"
             tools:context=".ui.home.HomeActivity">
 
+        <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/top_margin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_begin="@dimen/dimen_twenty_four" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/hamburger"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_sixteen"
+                android:background="@drawable/rounded_ripple_drawable"
+                android:clickable="true"
+                android:elevation="@dimen/dimen_twenty_four"
+                android:focusable="true"
+                android:padding="@dimen/dimen_eight"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/top_margin"
+                app:srcCompat="@drawable/ic_lock_white" />
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/paint_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_sixteen"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:focusable="true"
+                app:layout_constraintLeft_toRightOf="@id/hamburger"
+                app:layout_constraintTop_toBottomOf="@id/top_margin"
+                app:srcCompat="@drawable/ic_palette" />
+
 
         <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/categories_rv"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dimen_zero"
+                android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/hamburger"
                 app:spanCount="5"
                 tools:itemCount="16"
                 tools:listitem="@layout/item_category" />

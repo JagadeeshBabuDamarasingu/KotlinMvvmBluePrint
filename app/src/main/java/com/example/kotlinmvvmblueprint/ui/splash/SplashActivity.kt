@@ -1,11 +1,11 @@
 package com.example.kotlinmvvmblueprint.ui.splash
 
+import android.content.ContentResolver
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
-import android.os.Handler
+import androidx.annotation.AnyRes
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityOptionsCompat
-import androidx.core.util.Pair
 import com.example.kotlinmvvmblueprint.R
 import com.example.kotlinmvvmblueprint.hideNavigationBar
 import com.example.kotlinmvvmblueprint.hideStatusBar
@@ -23,27 +23,35 @@ class SplashActivity : AppCompatActivity() {
         setContentView(R.layout.activity_splash)
         hideNavigationBar()
         setTransitionsNull()
-        Handler().postDelayed({
+        initVideo()
+    }
+
+    private fun initVideo() {
+        video_view.setVideoURI(getResourceUri(R.raw.splash_video))
+        video_view.setZOrderOnTop(true)
+        video_view.setOnCompletionListener {
             val currentUser = FirebaseAuth.getInstance().currentUser
             if (currentUser == null) {
                 openLoginActivity()
             } else {
                 openHomeActivity()
             }
-        }, 3000)
+        }
+        video_view.start()
     }
+
+    private fun getResourceUri(@AnyRes resourceId: Int) = Uri.Builder()
+        .scheme(ContentResolver.SCHEME_ANDROID_RESOURCE)
+        .authority(packageName)
+        .path(resourceId.toString())
+        .build()
 
     private fun openLoginActivity() {
         startActivity(
             Intent(this, RequestOtpActivity::class.java)
                 .apply {
                     addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
-                }, ActivityOptionsCompat.makeSceneTransitionAnimation(
-                this, Pair(
-                    app_title,
-                    getString(R.string.transition_title)
-                )
-            ).toBundle()
+                }
         )
         finish()
     }
