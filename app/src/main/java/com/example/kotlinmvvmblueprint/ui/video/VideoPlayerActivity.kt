@@ -51,12 +51,16 @@ class VideoPlayerActivity : AppCompatActivity(),
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         AndroidInjection.inject(this)
-        hideStatusBar()
         setContentView(R.layout.activity_video_player)
-        hideNavigationBar()
         setUp()
         initObservers()
         processIntent()
+    }
+
+    override fun onResume() {
+        hideStatusBar()
+        hideNavigationBar()
+        super.onResume()
     }
 
     private fun processIntent() {
