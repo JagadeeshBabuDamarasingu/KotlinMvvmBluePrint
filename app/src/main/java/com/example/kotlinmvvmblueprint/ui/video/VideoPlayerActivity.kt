@@ -106,9 +106,7 @@ class VideoPlayerActivity : AppCompatActivity(),
 
     }
 
-    override fun onCategoryClicked(category: Video) {
-        loadVideo(category)
-    }
+    override fun onCategoryClicked(video: Video) = loadVideo(video)
 
     override fun onStart() {
         super.onStart()

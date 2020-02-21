@@ -12,10 +12,14 @@ class TracingActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        hideStatusBar()
         setContentView(R.layout.activity_tracing)
-        hideNavigationBar()
         init()
+    }
+
+    override fun onResume() {
+        hideStatusBar()
+        hideNavigationBar()
+        super.onResume()
     }
 
     private fun init() {

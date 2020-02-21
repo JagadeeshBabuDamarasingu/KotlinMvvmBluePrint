@@ -60,8 +60,8 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), HomeScr
     private fun init() {
         categories_rv.layoutManager = mLayoutManager
         categories_rv.adapter = mAdapter
-        paint_btn.setOnClickListener {
-            startActivity(Intent(this@HomeActivity,TracingActivity::class.java))
+        tracing_tab.setOnClickListener {
+            startActivity(Intent(this@HomeActivity, TracingActivity::class.java))
         }
     }
 
@@ -70,5 +70,11 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), HomeScr
         val videoIntent = Intent(this, VideoPlayerActivity::class.java)
         videoIntent.putExtra(VideoPlayerActivity.KEY_CATEGORY, category.name)
         startActivity(videoIntent)
+    }
+
+    override fun onResume() {
+        hideStatusBar()
+        hideNavigationBar()
+        super.onResume()
     }
 }

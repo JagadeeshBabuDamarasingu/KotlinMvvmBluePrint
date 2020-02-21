@@ -58,6 +58,6 @@ class VideoThumbHolder(
     }
 
     interface VideoHolderListener {
-        fun onCategoryClicked(category: Video)
+        fun onCategoryClicked(video: Video)
     }
 }

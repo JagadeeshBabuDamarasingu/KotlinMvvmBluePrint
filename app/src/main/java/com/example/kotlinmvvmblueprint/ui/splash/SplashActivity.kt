@@ -19,11 +19,15 @@ class SplashActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        hideStatusBar()
         setContentView(R.layout.activity_splash)
-        hideNavigationBar()
         setTransitionsNull()
         initVideo()
+    }
+
+    override fun onResume() {
+        hideStatusBar()
+        hideNavigationBar()
+        super.onResume()
     }
 
     private fun initVideo() {
