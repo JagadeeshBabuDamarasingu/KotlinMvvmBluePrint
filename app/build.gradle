@@ -77,7 +77,7 @@ dependencies {
 
     // view model
     implementation "android.arch.lifecycle:extensions:${versions.lifecycle}"
-    annotationProcessor 'androidx.lifecycle:lifecycle-common-java8:2.2.0'
+    annotationProcessor 'androidx.lifecycle:lifecycle-common-java8:2.3.1'
 
     //Glide
     implementation "com.github.bumptech.glide:glide:${versions.glide}"
