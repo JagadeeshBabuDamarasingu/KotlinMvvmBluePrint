@@ -1,0 +1,22 @@
+version: 2
+updates:
+- package-ecosystem: gradle
+  directory: "/"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: com.google.firebase:firebase-auth
+    versions:
+    - 20.0.2
+    - 20.0.3
+  - dependency-name: com.google.android.exoplayer:exoplayer
+    versions:
+    - 2.13.1
+    - 2.13.2
+  - dependency-name: androidx.lifecycle:lifecycle-common-java8
+    versions:
+    - 2.3.0
+  - dependency-name: com.android.tools.build:gradle
+    versions:
+    - 4.1.2
